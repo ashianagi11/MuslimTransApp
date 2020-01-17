@@ -1,9 +1,10 @@
 import React from 'react'; 
 
 const Translation = (props) => {
+    let lang = props.lang; 
     return (
         <div>
-            translation component
+             
         </div>
     )
 }

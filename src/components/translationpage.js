@@ -1,29 +1,29 @@
 import React from 'react';
 
-import Description from './description'; 
-import Languages from './languages'; 
+// import Languages from './languages'; 
 import Translation from './translation';
+import Texttrans from '../texttrans'; 
 
-class TranslationPage extends React.Component {
-    constructor() {
-        super();
+const TranslationPage = (props) => {
+    let obj = props.location.aboutProps || {}; 
+    console.log(obj);
+    let lang = obj.lang; 
+
+    function translateLive(lang) {
+        console.log(lang, 'button works')
     }
 
-    render() {
-        return (
+    return (
+        <div>
             <div>
-                translation page
-            </div> 
-        ) 
-    }
+                <Texttrans lang={obj.lang}/>   
+                <button onClick={()=>translateLive(lang)}>translate</button>
+            </div>
+            <div> 
+                <Translation lang={obj.lang}/>
+            </div>
+        </div>
+    )
 }
-// const TranslationPage = (props) => {
-
-//     return (
-//         <div>
-//             translationpage
-//         </div>
-//     )
-// }
 
 export default TranslationPage; 

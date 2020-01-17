@@ -8,14 +8,16 @@ import TranslationPage from './components/translationpage';
 
 function App() {
   return (
-    <Router>
-        <div className='App'>
-          <Switch>
-            <Route exact path='/' component={WelcomePage}/> 
-            <Route exact path='/translate' component={TranslationPage}/> 
-          </Switch>
-        </div>
-    </Router>
+    <div>
+      <Router>
+          <div className='App'>
+            <Switch>
+                <Route exact path='/' component={WelcomePage}/> 
+                <Route exact path='/translate' component={TranslationPage}/> 
+            </Switch>
+          </div>
+      </Router>
+    </div>
   );
 }
 
