@@ -88,8 +88,6 @@ constructor(props) {
     }
   }
 
-
-
   render() {
     return (
       <div>
