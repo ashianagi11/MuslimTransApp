@@ -10,11 +10,8 @@ class WelcomePage extends Component {
             textIndex: 0,
             languages: ['en','ar','bn','ur','so'],
             selectedLang: 'en', 
-            placeholder: ['Select Your Language','اختر لغتك','اپنی زبان کا انتخاب کریں','আপনার ভাষা নির্বাচন করুন','Dooro Luqaddaada']
         }; 
     }
-
-    //todo: add a dictionary that translates user input "english to en"
 
     //shuffling function 
     componentDidMount(){
@@ -29,53 +26,40 @@ class WelcomePage extends Component {
         clearInterval(this.timeout); 
     }
 
-    // updates the state every time user inputs a char
-    handleChange = (e) => {
-        this.setState({
-            selectedLang: e.target.value
-        }); 
-    }; 
-
-    //stores selected language
-    handleEnterKey = (e) => {
-        if(e.key === 'Enter') {
-            this.setState({
-                selectedLang: e.target.selectedLang
-            })
-        }
-        console.log(this.state.selectedLang)
-    }
-
     render() {
         const {welcomeTexts} = this.state; 
-        const {placeholder} = this.state; 
-
         let textChanged = welcomeTexts[this.state.textIndex % welcomeTexts.length];
-        let changePlaceHolder = placeholder[this.state.textIndex % placeholder.length];
+
         return (
-            <div>
+            <div className="home">
                 <div>
-                   <span>{textChanged}</span>
+                   <span id="welcome">{textChanged}</span>
                 </div> 
-                <div>
-                <input 
-                    type='text'
-                    placeholder={changePlaceHolder}
-                    selectedLang={this.state.selectedLang}
-                    onChange={this.handleChange}
-                    onKeyDown={(e) => this.handleEnterKey(e)}
-                />
+                <div id="langButtons">
+                    <button id='button' onClick={()=>this.setState({selectedLang: 'ar'})}>
+                        عربى    
+                    </button>
+                    <button id='button' onClick={()=>this.setState({selectedLang: 'ur'})}> 
+                        اردو    
+                    </button>
+                    <button id='button' onClick={()=>this.setState({selectedLang: 'bn'})}>
+                        বাংলা 
+                    </button>
+                    <button id='button' onClick={()=>this.setState({selectedLang: 'so'})}> 
+                        Somali
+                    </button>
                 </div>
-                <Link to ={{
+                <Link id="btn-start" to ={{
                         pathname: '/translate', 
                         aboutProps: {
                             temp: 'hello',
                             lang: this.state.selectedLang
                         }
-                }}> Start! </Link>
+                }}> START</Link>
             </div>
         )
     }
+    
 }
-
+  
 export default WelcomePage; 

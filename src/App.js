@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 
 import WelcomePage from './components/welcomepage'; 
 import TranslationPage from './components/translationpage';
+import Translation from './components/translation'; 
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
             <Switch>
                 <Route exact path='/' component={WelcomePage}/> 
                 <Route exact path='/translate' component={TranslationPage}/> 
+                <Route exact path='/transcription' component={Translation}/>
             </Switch>
           </div>
       </Router>

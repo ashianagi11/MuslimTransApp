@@ -1,26 +1,18 @@
-import React from 'react';
+import React,{useState} from 'react';
+import axios from 'axios'; 
 
-// import Languages from './languages'; 
-import Translation from './translation';
-import Texttrans from '../texttrans'; 
+import Texttrans from '../texttrans';
+import Speech from '../components/testing2';  
 
 const TranslationPage = (props) => {
-    let obj = props.location.aboutProps || {}; 
-    console.log(obj);
-    let lang = obj.lang; 
-
-    function translateLive(lang) {
-        console.log(lang, 'button works')
-    }
-
+    let obj = props.location.aboutProps || {};  
     return (
-        <div>
+        <div className="translationPage">
             <div>
                 <Texttrans lang={obj.lang}/>   
-                <button onClick={()=>translateLive(lang)}>translate</button>
-            </div>
+            </div> 
             <div> 
-                <Translation lang={obj.lang}/>
+                <Speech lang={obj.lang}/>
             </div>
         </div>
     )
