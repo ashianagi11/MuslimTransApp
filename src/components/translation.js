@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { googleTranslate } from '../utils/googleTranslate';
 
-
 const Translation = (props) => { 
   const [transText, setTransText] = useState(''); 
   
@@ -10,7 +9,6 @@ const Translation = (props) => {
   
   googleTranslate.translate(text, lang, function(err, translation) {
     setTransText(translation.translatedText);
-    // return transText;
   });
 
   return (

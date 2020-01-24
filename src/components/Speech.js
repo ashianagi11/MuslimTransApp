@@ -1,8 +1,6 @@
 import React, { Component } from "react"; 
 
-import Translation from '../components/translation';
-
-//------------------------SPEECH RECOGNITION-----------------------------
+import Translation from './translation';
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new SpeechRecognition()
@@ -11,25 +9,31 @@ recognition.continous = true
 recognition.interimResults = true
 recognition.lang = 'en-US'
 
-
-//------------------------COMPONENT-----------------------------
-
 class Speech extends Component {
-
-constructor(props) {
-    super(props)
-    this.state = {
-      listening: false,
-      lang: props.lang,
-      data: ['default']
-    }
-    this.toggleListen = this.toggleListen.bind(this)
-    this.handleListen = this.handleListen.bind(this)
+  constructor(props) {
+      super(props)
+      this.state = {
+        listening: false,
+        buttonWord: 'Translate',
+        lang: props.lang,
+        data: ['Translating...']
+      }
+      this.toggleListen = this.toggleListen.bind(this)
+      this.handleListen = this.handleListen.bind(this)
   }
 
   toggleListen() {
+    if(this.state.buttonWord === 'Translate') {
+      this.setState({
+        buttonWord: 'Stop Translate'
+      })
+    } else {
+      this.setState({
+        buttonWord: 'Translate'
+      })
+    }
     this.setState({
-      listening: !this.state.listening
+      listening: !this.state.listening, 
     }, this.handleListen)
   }
 
@@ -56,16 +60,11 @@ constructor(props) {
     let finalTranscript = ''
     recognition.onresult = event => {
       let interimTranscript = ''
-
       for (let i = event.resultIndex; i < event.results.length; i++) {
         const transcript = event.results[i][0].transcript;
         if (event.results[i].isFinal) finalTranscript += transcript + ' ';
         else interimTranscript += transcript;
       }
-      // document.getElementById('interim').innerHTML = interimTranscript
-      // document.getElementById('final').innerHTML = finalTranscript
-
-    //-------------------------COMMANDS------------------------------------
 
       const transcriptArr = finalTranscript.split(' ')
       const stopCmd = transcriptArr.slice(-3, -1)
@@ -82,7 +81,6 @@ constructor(props) {
         }
       }
     }
-  //-----------------------------------------------------------------------
     recognition.onerror = event => {
       console.log("Error occurred in recognition: " + event.error)
     }
@@ -90,10 +88,8 @@ constructor(props) {
 
   render() {
     return (
-      <div>
-        <button id='microphone-btn' onClick={this.toggleListen}>Translate</button>
-        {/* <div id='interim' ></div>
-        <div id='final' ></div>  */}
+      <div className="speech">
+        <button id='microphone-btn' onClick={this.toggleListen}>{this.state.buttonWord}</button>
         <Translation data={this.state.data} lang={this.state.lang}/>
       </div>
     )

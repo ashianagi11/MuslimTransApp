@@ -1,14 +1,13 @@
-import React,{useState} from 'react';
-import axios from 'axios'; 
+import React from 'react';
 
 import Texttrans from '../texttrans';
-import Speech from '../components/testing2';  
+import Speech from '../components/Speech';  
 
 const TranslationPage = (props) => {
     let obj = props.location.aboutProps || {};  
     return (
         <div className="translationPage">
-            <div>
+            <div className='description'>
                 <Texttrans lang={obj.lang}/>   
             </div> 
             <div> 
