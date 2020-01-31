@@ -6,9 +6,9 @@ class WelcomePage extends Component {
     constructor() {
         super(); 
         this.state = {
-            welcomeTexts: ['Welcome', 'أهلا بك','خوش آمدید', 'স্বাগত', 'Soo Dhawow'], 
+            welcomeTexts: ['Welcome', 'أهلا بك','خوش آمدید', 'স্বাগত', 'Soo Dhawow', 'bienvenido'], 
             textIndex: 0,
-            languages: ['en','ar','bn','ur','so'],
+            languages: ['en','ar','bn','ur','so', 'es'],
             selectedLang: 'en', 
         }; 
     }
@@ -47,6 +47,9 @@ class WelcomePage extends Component {
                     </button>
                     <button id='button' onClick={()=>this.setState({selectedLang: 'so'})}> 
                         Somali
+                    </button>
+                    <button id='button' onClick={()=>this.setState({selectedLang: 'es'})}> 
+                        Espanol 
                     </button>
                 </div>
                 <Link id="btn-start" to ={{
