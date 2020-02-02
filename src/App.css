@@ -1,18 +1,15 @@
 .home {
   display: flex;
-  justify-content: center; 
+  justify-content: flex-start; 
   align-items: center;
   flex-direction: column;
-  margin-top: 150px;
+  
   overflow: hidden;
-}
-
-#welcomeDiv {
-  padding-top: 60px;
   
 }
 
 #welcome {
+  padding-top: 150px;
   color: #ff9900; 
   font-size: 120px;
   text-align: center;
@@ -22,14 +19,13 @@
 #langButtons {
     margin-bottom: 20px; 
     position: fixed;
-    top: 350px;
+    top: 420px;
 }
 
 button {
   font-family: 'Raleway', sans-serif;
   margin: 50px 10px;
 
-  text-shadow: 1px 1px 2px #2d5474;
   height: 150px; 
   width: 150px;
   border-radius: 20px;
@@ -37,24 +33,31 @@ button {
   background-color: #3796bf;
   color: white;
   font-size: 30px;
-  border: 1px solid #2d5474;
+}
+
+button:focus {
+  outline: none;
+  border: 5px solid #ff9900; 
+  border-radius: 20px;
+  
 }
 
 #btn-start {
-  border: 2px solid #2d5474;
+  border: 2px solid #fff;
   height: 40px; 
   width: 100px; 
   border-radius: 20px;
   padding: 15px 15px 0px;
-  color: #2d5474;
+  color: #fff;
   font-size: 25px;
   font-weight: 300;
   text-align: center;
   padding-top: 8px;
   text-decoration: none;
   position: fixed;
-  top: 580px;
+  top: 650px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.5);
+  background-color: rgba(255,255,255, 0.3);
 }
 
 .translationPage {

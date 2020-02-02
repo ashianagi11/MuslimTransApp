@@ -19,4 +19,14 @@ body {
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6)), url("./assets/welcome_bg.jpg");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  height: 100vh;
+  width: 100vw;
 }

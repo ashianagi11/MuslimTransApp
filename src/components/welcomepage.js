@@ -32,8 +32,8 @@ class WelcomePage extends Component {
 
         return (
             <div className="home">
-                <div id="welcomeDiv">
-                   <span id="welcome">{textChanged}</span>
+                <div>
+                   <h1 id="welcome">{textChanged}</h1>
                 </div> 
                 <div id="langButtons">
                     <button onClick={()=>this.setState({selectedLang: 'ar'})}>
