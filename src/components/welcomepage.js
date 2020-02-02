@@ -6,7 +6,7 @@ class WelcomePage extends Component {
     constructor() {
         super(); 
         this.state = {
-            welcomeTexts: ['Welcome', 'أهلا بك','خوش آمدید', 'স্বাগত', 'Soo Dhawow', 'bienvenido'], 
+            welcomeTexts: ['Welcome', 'أهلا بك','خوش آمدید', 'স্বাগত', 'Soo Dhawow', 'Bienvenido'], 
             textIndex: 0,
             languages: ['en','ar','bn','ur','so', 'es'],
             selectedLang: 'en', 
@@ -32,23 +32,23 @@ class WelcomePage extends Component {
 
         return (
             <div className="home">
-                <div>
+                <div id="welcomeDiv">
                    <span id="welcome">{textChanged}</span>
                 </div> 
                 <div id="langButtons">
-                    <button id='button' onClick={()=>this.setState({selectedLang: 'ar'})}>
+                    <button onClick={()=>this.setState({selectedLang: 'ar'})}>
                         عربى    
                     </button>
-                    <button id='button' onClick={()=>this.setState({selectedLang: 'ur'})}> 
+                    <button onClick={()=>this.setState({selectedLang: 'ur'})}> 
                         اردو    
                     </button>
-                    <button id='button' onClick={()=>this.setState({selectedLang: 'bn'})}>
+                    <button onClick={()=>this.setState({selectedLang: 'bn'})}>
                         বাংলা 
                     </button>
-                    <button id='button' onClick={()=>this.setState({selectedLang: 'so'})}> 
+                    <button onClick={()=>this.setState({selectedLang: 'so'})}> 
                         Somali
                     </button>
-                    <button id='button' onClick={()=>this.setState({selectedLang: 'es'})}> 
+                    <button onClick={()=>this.setState({selectedLang: 'es'})}> 
                         Espanol 
                     </button>
                 </div>
@@ -58,7 +58,7 @@ class WelcomePage extends Component {
                             temp: 'hello',
                             lang: this.state.selectedLang
                         }
-                }}> START</Link>
+                }}>START</Link>
             </div>
         )
     }
